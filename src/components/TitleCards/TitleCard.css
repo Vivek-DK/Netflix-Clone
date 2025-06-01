@@ -1,0 +1,151 @@
+.title-cards {
+  margin: 30px 0;
+  padding: 0 4%;
+  transition: all 0.3s ease;
+}
+
+.title-cards-title {
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.card-list {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: visible;
+  -webkit-overflow-scrolling: touch;
+  gap: 12px;
+}
+
+.card-list::-webkit-scrollbar {
+  display: none;
+}
+
+.title-card {
+  flex: 0 0 auto;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.title-card:hover {
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.title-card-img-wrapper {
+  position: relative;
+}
+
+.title-card-img {
+  width: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.title-card-overlay {
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  width: 100%;
+  padding: 20px;
+  border-radius: 0 0 4px 4px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  pointer-events: none;
+}
+
+.title-card:hover .title-card-overlay {
+  opacity: 1;
+}
+
+.title-card-name{
+  font-size: 12px;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title-card-rating {
+  position: absolute;
+  color: rgb(255, 251, 5);
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+@media (max-width: 500px) {
+  .title-cards h2 {
+    font-size: 15px;
+  }
+
+  .title-card img,
+  .title-card-overlay {
+    width: 200px;
+  }
+
+  .title-card-name {
+    font-size: 11px;
+  }
+
+  .card-list {
+    gap: 8px;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 1000px) {
+  .title-cards h2 {
+    font-size: 17px;
+  }
+
+  .title-card img,
+  .title-card-overlay {
+    width: 250px;
+  }
+
+  .title-card-name {
+    font-size: 12px;
+  }
+
+  .card-list {
+    gap: 10px;
+  }
+}
+
+@media (min-width: 1001px) {
+  .title-cards h2 {
+    font-size: 18px;
+  }
+
+  .title-card img,
+  .title-card-overlay {
+    width: 300px;
+  }
+
+  .title-card-name {
+    font-size: 13px;
+  }
+
+  .card-list {
+    gap: 12px;
+  }
+}
+
+.title-card-name {
+  font-size: 14px;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  max-width: 100%;
+}
