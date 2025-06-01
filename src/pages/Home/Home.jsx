@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Home.css';
 import Navbar from '../../components/Navbar/Navbar';
 import play_icon from '../../assets/play_icon.png';
-import info_icon from '../../assets/Info_icon.png';
+import info_icon from '../../assets/info_icon.png';
 import TitleCards from '../../components/TitleCards/TitleCards';
 import Footer from '../../components/Footer/Footer';
 import { Link } from 'react-router-dom';
