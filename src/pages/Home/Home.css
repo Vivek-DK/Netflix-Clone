@@ -35,24 +35,27 @@
   transition: transform all 1s ease;
 }
 
-@media(min-width: 400px) and (max-width: 600px) {
+@media(min-width: 375px) and (max-width: 380px) {
 
   .popular{
     position: absolute;
-    left: -1.5%;
+    left: 0;
     z-index: 2;
     transition: all 0.5s ease;
     padding-right: 30%;
-    width: 700px;
+    width: 470px;
+    transform: translate(0%, 19%);
   }
 
   .hero{
-    height: 75vh;
+    transform: translateY(11%);
+    height: 70vh;
+    margin-bottom: 100px;
   }
 
   .hero-caption {
     position: absolute;
-    bottom: 40%;
+    bottom: 32%;
     left: 4%;
     max-width: 250px;
     display: flex;
@@ -64,11 +67,139 @@
   }
 }
 
+@media(min-width: 340px) and (max-width: 350px) {
+
+  .popular{
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    transition: all 0.5s ease;
+    padding-right: 30%;
+    width: 450px;
+    transform: translate(0%, 30%);
+  }
+
+  .hero{
+    transform: translateY(11%);
+    height: 60vh;
+    margin-bottom: 100px;
+  }
+
+  .hero-caption {
+    position: absolute;
+    bottom: 30%;
+    left: 4%;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    z-index: 2;
+    transition: all 0.2s ease;
+  }
+}
+
+@media(min-width: 381px) and (max-width: 400px) {
+
+  .popular{
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    transition: all 0.5s ease;
+    padding-right: 30%;
+    width: 510px;
+    transform: translate(0%, 35%);
+  }
+
+  .hero{
+    transform: translateY(11%);
+    height: 65vh;
+    margin-bottom: 100px;
+  }
+
+  .hero-caption {
+    position: absolute;
+    bottom: 28%;
+    left: 4%;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    z-index: 2;
+    transition: all 0.2s ease;
+  }
+}
+
+@media(min-width: 401px) and (max-width: 500px) {
+
+  .popular{
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    transition: all 0.5s ease;
+    padding-right: 30%;
+    width: 540px;
+    transform: translateX(0%);
+    transform: translateY(28%);
+  }
+
+  .hero{
+    transform: translateY(11%);
+    height: 60vh;
+    margin-bottom: 100px;
+  }
+
+  .hero-caption {
+    position: absolute;
+    bottom: 30%;
+    left: 4%;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    z-index: 2;
+    transition: all 0.2s ease;
+  }
+}
+
+@media((min-width: 530px) and (max-width: 600px)) {
+
+  .popular{
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    transition: all 0.5s ease;
+    padding-right: 25%;
+    width: 670px;
+    transform: translateY(7%);
+  }
+
+  .hero{
+    transform: translateY(10%);
+    height: 70vh;
+    margin-bottom: 100px;
+  }
+
+  .hero-caption {
+    position: absolute;
+    bottom: 38%;
+    left: 4%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    z-index: 2;
+    transition: all 0.2s ease;
+  }
+}
 @media((min-width: 601px) and (max-width: 700px)) {
 
   .popular{
     position: absolute;
-    left: 1.5%;
+    left: 0;
     z-index: 2;
     transition: all 0.5s ease;
     padding-right: 25%;
@@ -76,7 +207,9 @@
   }
 
   .hero{
+    transform: translateY(18%);
     height: 80vh;
+    margin-bottom: 100px;
   }
 
   .hero-caption {
@@ -93,24 +226,59 @@
   }
 }
 
-@media((min-width: 701px) and (max-width: 900px)) {
+@media((min-width: 701px) and (max-width: 800px)) {
 
   .popular{
     position: absolute;
-    left: 0.1%;
+    left: 0;
     z-index: 2;
     transition: all 0.5s ease;
     padding-right: 25%;
-    width: 1050px;
+    width: 960px;
+    transform: translateY(20%);
   }
 
   .hero{
-    height: 80vh;
+    transform: translateY(10%);
+    height: 60vh;
+    margin-bottom: 100px;
   }
 
   .hero-caption {
     position: absolute;
-    bottom: 45%;
+    bottom: 35%;
+    left: 4%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    z-index: 2;
+    transition: all 0.2s ease;
+  }
+}
+
+@media((min-width: 800px) and (max-width: 860px)) {
+
+  .popular{
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    transition: all 0.5s ease;
+    padding-right: 25%;
+    width: 1000px;
+    transform: translateY(24%);
+  }
+
+  .hero{
+    transform: translateY(10%);
+    height: 50vh;
+    margin-bottom: 100px;
+  }
+
+  .hero-caption {
+    position: absolute;
+    bottom: 35%;
     left: 4%;
     max-width: 350px;
     display: flex;
@@ -125,20 +293,23 @@
 
   .popular{
     position: absolute;
-    left: 0.4%;
+    left: 0;
     z-index: 2;
     transition: all 0.5s ease;
     padding-right: 25%;
-    width: 1250px;
+    width: 1150px;
+    transform: translateY(28%);
   }
 
   .hero{
-    height: 80vh;
+    transform: translateY(10%);
+    height: 50vh;
+    margin-bottom: 100px;
   }
 
   .hero-caption {
     position: absolute;
-    bottom: 45%;
+    bottom: 35%;
     left: 4%;
     max-width: 380px;
     display: flex;
@@ -150,20 +321,52 @@
   }
 }
 
-@media((min-width: 1001px) and (max-width: 1100px)) {
+@media((min-width: 1020px) and (max-width: 1030px)) {
+
+  .popular{
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    transition: all 0.5s ease;
+    padding-right: 25%;
+    width: 1280px;
+    transform: translateY(35%);
+  }
+
+  .hero{
+    transform: translateY(10%);
+    height: 55vh;
+    margin-bottom: 100px;
+  }
+
+  .hero-caption {
+    position: absolute;
+    bottom: 32%;
+    left: 4%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    z-index: 2;
+    transition: all 0.2s ease;
+  }
+}
+
+@media((min-width: 1031px) and (max-width: 1050px)) {
 
   .popular{
     position: absolute;
     z-index: 2;
     transition: all 0.5s ease;
     padding-right: 25%;
-    width: 790px;
-    transform: translateX(28%);
-    transform: translateY(-5%, 0);
+    width: 850px;
+    transform: translate(50%, -15%);
+    left: 0%;
   }
 
   .hero{
-    height: 80vh;
+    height: 85vh;
   }
 
   .hero-caption {
@@ -171,6 +374,35 @@
     bottom: 10%;
     left: 4%;
     max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+    z-index: 2;
+    transition: all 0.2s ease;
+  }
+}
+
+@media((min-width: 1201px) and (max-width: 1280px)) {
+
+  .popular{
+    position: absolute;
+    z-index: 2;
+    transition: all 0.5s ease;
+    padding-right: 25%;
+    width: 1080px;
+    transform: translate(28%, 5%);
+  }
+
+  .hero{
+    height: 85vh;
+  }
+
+  .hero-caption {
+    position: absolute;
+    bottom: 10%;
+    left: 4%;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -190,6 +422,7 @@
     width: 940px;
     transform: translateX(28%);
     transform: translateY(-5%, 0);
+    left: 0%;
   }
 
   .hero{
@@ -210,7 +443,7 @@
   }
 }
 
-@media((min-width: 1201px) and (max-width: 3600px)) {
+@media((min-width: 1201px) and (max-width: 3580px)) {
 
   .popular{
     position: absolute;
@@ -218,8 +451,7 @@
     transition: all 0.5s ease;
     padding-right: 25%;
     width: 1080px;
-    transform: translateX(28%);
-    transform: translateY(-5%, 0);
+    transform: translate(28%, 5%);
   }
 
   .hero{
@@ -230,7 +462,7 @@
     position: absolute;
     bottom: 10%;
     left: 4%;
-    max-width: 400px;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -272,7 +504,7 @@
 }
 
 .btn img {
-  width: 16px;
+  width: 15px;
 }
 
 .btn:first-of-type:hover {

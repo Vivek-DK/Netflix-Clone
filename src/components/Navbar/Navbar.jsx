@@ -7,7 +7,7 @@ import IMG_0806 from '../../assets/IMG_0806.JPG';
 import { logout } from '../../firebase'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useMovies } from '../../context/MovieContext';
 import { userData } from '../../context/UserContext';
 
@@ -17,31 +17,28 @@ const Navbar = () => {
   const [profileOpen, setProfileOpen] = useState(false);
   const menuRef = useRef(null);
   const menuToggleRef = useRef(null);
-  const profileRef = useRef(null); 
-  const [isClicked, setIsClicked] = useState(() => {
-  return localStorage.getItem('bellClicked') === 'true';
-});
   const { movies, setSearchResult } = useMovies();
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();
 
-  
-  const handleSearch = () => {
-    if (!searchQuery.trim()) return;
+  const [activeItem, setActiveItem] = useState(() => {
+    return localStorage.getItem('activeNavItem') || '/';
+  });
 
-    const foundMovie = movies.find(
-      (movie) =>
-        movie.original_title?.toLowerCase() === searchQuery.toLowerCase() ||
-        movie.title?.toLowerCase() === searchQuery.toLowerCase()
-    );
-
-    if (foundMovie) {
-      setSearchResult(foundMovie);
-      navigate(`/moreinfo/${foundMovie.id}`);
-    } else {
-      alert('No results found.');
+  useEffect(() => {
+    if (location.pathname !== activeItem) {
+      setActiveItem(location.pathname);
+      localStorage.setItem('activeNavItem', location.pathname);
     }
-  };
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const storedPath = localStorage.getItem('activeNavItem');
+    if (storedPath && location.pathname !== storedPath) {
+      navigate(storedPath);
+    }
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -53,39 +50,71 @@ const Navbar = () => {
       ) {
         setMenuOpen(false);
       }
-
-      if (
-        profileRef.current &&
-        !profileRef.current.contains(e.target)
-      ) {
-        setProfileOpen(false);
-        }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const toggleMenu = () => {
-    if (!menuOpen) setProfileOpen(false);
-    setMenuOpen(prev => !prev);
+  const handleSearch = () => {
+    if (!searchQuery.trim()) return;
+    const foundMovie = movies.find(
+      (movie) =>
+        movie.original_title?.toLowerCase() === searchQuery.toLowerCase() ||
+        movie.title?.toLowerCase() === searchQuery.toLowerCase()
+    );
+    if (foundMovie) {
+      setSearchResult(foundMovie);
+      navigate(`/moreinfo/${foundMovie.id}`);
+    } else {
+      alert('No results found.');
+    }
   };
 
-  const toggleProfile = () => {
-    if (!profileOpen) setMenuOpen(false);
-    setProfileOpen(prev => !prev);
+  const handleNavigation = (path) => {
+    setMenuOpen(false);
+    setActiveItem(path);
+    localStorage.setItem('activeNavItem', path);
+    navigate(path);
   };
 
   return (
     <div className='navbar'>
       <div className="navbar-left">
-        <img src={logo} alt="Logo" />
+        <img src={logo} alt="Logo" className='logo'/>
         <ul className={`navbar-menu ${menuOpen ? 'show' : ''}`} ref={menuRef}>
-          <li onClick={() => { navigate('/'); setMenuOpen(false); }}>Home</li>
-          <li onClick={() => { navigate('/tvshows'); setMenuOpen(false); }}>TV Shows</li>
-          <li onClick={() => { navigate('/movies'); setMenuOpen(false); }}>Movies</li>
-          <li onClick={() => { navigate('/sports'); setMenuOpen(false); }}>Sports</li>
-          <li onClick={() => { navigate('/dailynews'); setMenuOpen(false); }}>Technology</li>
-          <li onClick={() => { navigate('/business'); setMenuOpen(false); }}>Business</li>
+          <li
+            className={activeItem === '/' ? 'active-nav-item' : ''}
+            onClick={() => handleNavigation('/')}
+          >Home</li>
+          <li
+            className={activeItem === '/tvshows' ? 'active-nav-item' : ''}
+            onClick={() => handleNavigation('/tvshows')}
+          >TV Shows</li>
+          <li
+            className={activeItem === '/movies' ? 'active-nav-item' : ''}
+            onClick={() => handleNavigation('/movies')}
+          >Movies</li>
+          <li
+            className={activeItem === '/entertainment' ? 'active-nav-item' : ''}
+            onClick={() => handleNavigation('/entertainment')}
+          >Entertainment</li>
+          <li
+            className={activeItem === '/sports' ? 'active-nav-item' : ''}
+            onClick={() => handleNavigation('/sports')}
+          >Sports</li>
+          <li
+            className={activeItem === '/crime' ? 'active-nav-item' : ''}
+            onClick={() => handleNavigation('/crime')}
+          >Crime</li>
+          
+          <li
+            className={activeItem === '/dailynews' ? 'active-nav-item' : ''}
+            onClick={() => handleNavigation('/dailynews')}
+          >Technology</li>
+          <li
+            className={activeItem === '/business' ? 'active-nav-item' : ''}
+            onClick={() => handleNavigation('/business')}
+          >Business</li>
           <div className="sign" onClick={() => { logout(); setMenuOpen(false); }}>
             <li>Log Out</li>
           </div>
@@ -93,18 +122,14 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-right">
-        <div className="menu-toggle" ref={menuToggleRef} onClick={toggleMenu}>
+        <div className="menu-toggle" ref={menuToggleRef} onClick={() => setMenuOpen(prev => !prev)}>
           <span><FontAwesomeIcon icon={faBars} /></span>
         </div>
         <input
           type="text"
           placeholder='Search'
           autoComplete='on'
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') {
-              handleSearch();
-            }
-          }}
+          onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
           className='search-input'
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
@@ -118,22 +143,19 @@ const Navbar = () => {
         <img
           src={bell_icon}
           alt="Bell"
-          className={isClicked ? 'navclk' : 'bell-icon'}
+          className={localStorage.getItem('bellClicked') === 'true' ? 'navclk' : 'bell-icon'}
           onClick={() => {
-            const newState = !isClicked;
-            setIsClicked(newState);
+            const newState = localStorage.getItem('bellClicked') !== 'true';
             localStorage.setItem('bellClicked', newState.toString());
           }}
         />
-
-        <div className="navbar-profile" ref={profileRef}>
+        <div className="navbar-profile" ref={menuRef}>
           <img
             src={IMG_0806}
             alt="Profile"
             className="profile-icon"
-            onClick={toggleProfile}
+            onClick={() => setProfileOpen(prev => !prev)}
           />
-
           {profileOpen && (
             <div className="profile-dropdown">
               <img src={IMG_0806} alt="Profile" className="dropdown-profile-img" />

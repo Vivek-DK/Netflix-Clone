@@ -2,8 +2,7 @@ import React from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import { motion } from 'framer-motion';
 import News from '../../components/TitleCards/News';
-import { div } from 'framer-motion/client';
-const Business = () => {
+const Crime = () => {
 
   const pageTransition = {
   initial: { opacity: 0, x: 40 },
@@ -15,21 +14,20 @@ const Business = () => {
     <div>
       <Navbar />
       <motion.div
-      className='tv-shows'
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={pageTransition}
+        className='tv-shows'
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        variants={pageTransition}
       >
         <div className="tv-shows-header">
-          <h1>Business</h1>
-          <p>Watch the latest business updates</p>
+          <h1>Crime</h1>
+          <p>Watch the latest crime updates</p>
         </div>
-        <News category={"business"}/>
+        <News category={"crime"}/>
       </motion.div>
     </div>
-    
   )
 }
 
-export default Business;
+export default Crime;

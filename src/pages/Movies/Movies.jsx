@@ -11,23 +11,25 @@ const Movies = () => {
 };
 
   return (
-    <motion.div
-      className='tv-shows'
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={pageTransition}
-    >
+    <div>
       <Navbar />
-      <div className="tv-shows-header">
-        <h1>Movies</h1>
-        <p>Watch the latest movies and series</p>
-      </div>
-      <TitleCards title="Now Playing" genre="movie" category="now_playing" />
-      <TitleCards title="Popular Movies" genre="trending" category="movie" day={"day"} />
-      <TitleCards title="Blockbuster Movies" genre="movie" category="top_rated" />
-        <TitleCards title="Upcoming Movies" genre="movie" category="upcoming" />
-    </motion.div>
+      <motion.div
+        className='tv-shows'
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        variants={pageTransition}
+      >
+        <div className="tv-shows-header">
+          <h1>Movies</h1>
+          <p>Watch the latest movies and series</p>
+        </div>
+        <TitleCards title="Now Playing" genre="movie" category="now_playing" />
+        <TitleCards title="Popular Movies" genre="trending" category="movie" day={"day"} />
+        <TitleCards title="Blockbuster Movies" genre="movie" category="top_rated" />
+          <TitleCards title="Upcoming Movies" genre="movie" category="upcoming" />
+      </motion.div>
+    </div>
   )
 }
 

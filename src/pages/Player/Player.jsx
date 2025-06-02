@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './player.css';
+import './Player.css';
 import back_arrow_icon from '../../assets/back_arrow_icon.png';
 import { useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -42,12 +42,12 @@ const Player = () => {
       <div className='back-arrow' onClick={() => navigate(-1)}>
         <img src={back_arrow_icon} alt="Back" />
       </div>
-      <iframe width="90%" height="90%" src={`https://www.youtube.com/embed/${apiData.key}`} title='trailer' frameBorder='0' allowFullScreen></iframe>
+      <iframe src={`https://www.youtube.com/embed/${apiData.key}`} title='trailer' frameBorder='0' allowFullScreen></iframe>
       <div className="player-info">
         <p>{apiData.published_at ? apiData.published_at.slice(0, 10) : apiData.first_air_date}</p>
-        <p>{apiData.name}</p>
         <p>{apiData.type ? apiData.type : apiData.media_type}</p>
       </div>
+      <div className="player-name">{apiData.name}</div>
     </motion.div>
   );
 };

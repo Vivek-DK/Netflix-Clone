@@ -11,20 +11,22 @@ const NewAndSports = () => {
 };
 
   return (
-    <motion.div
-      className='tv-shows'
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={pageTransition}
-    >
+    <div>
       <Navbar />
-      <div className="tv-shows-header">
-        <h1>Sports</h1>
-        <p>Watch the latest sports updates</p>
-      </div>
-      <News category={"sports"}/>
-    </motion.div>
+      <motion.div
+        className='tv-shows'
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        variants={pageTransition}
+      >
+        <div className="tv-shows-header">
+          <h1>Sports</h1>
+          <p>Watch the latest sports updates</p>
+        </div>
+        <News category={"sports"}/>
+      </motion.div>
+    </div>
   )
 }
 

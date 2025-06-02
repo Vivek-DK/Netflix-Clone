@@ -8,14 +8,15 @@ import Movies from './pages/Movies/Movies';
 import Sports from './pages/NewsAndSports/Sports';
 import DailyNews from './pages/NewsAndSports/DailyNews';
 import Business from './pages/NewsAndSports/Business';
+import Entertainment from './pages/NewsAndSports/Entertainment';
+import Crime from './pages/NewsAndSports/crime';
 import { MovieProvider } from './context/MovieContext';
 import Login from './pages/Login/Login'
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
 import { AnimatePresence } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
+import { useLocation} from 'react-router-dom';
 import { useEffect } from 'react';
-
 const App = () => {
 
 
@@ -58,6 +59,8 @@ const ScrollToTop = () => {
           <Route path="/sports" element={<Sports />} />
           <Route path="/dailynews" element={<DailyNews />} />
           <Route path="/business" element={<Business />} />
+          <Route path="/entertainment" element={<Entertainment />} />
+          <Route path="/crime" element={<Crime />} />
         </Routes>
       </MovieProvider>
     </AnimatePresence>

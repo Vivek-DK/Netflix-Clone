@@ -67,10 +67,10 @@ const Home = () => {
           <p>{currentMovie.overview}</p>
           <div className="hero-btns">
             <Link to={`/player/${currentMovie.id}`} className='btn'>
-              <img src={play_icon} alt="Play" className='imgbtn' /> Play
+              <img src={play_icon} className='imgbtn' /> Play
             </Link>
             <button className='btn' onClick={() => navigate(`/moreinfo/${currentMovie.id}`)}>
-              <img src={info_icon} alt="Info" className='imgbtn' /> More Info
+              <img src={info_icon} className='imgbtn' /> More Info
             </button>
           </div>
         </div>
