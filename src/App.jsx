@@ -9,7 +9,7 @@ import Sports from './pages/NewsAndSports/Sports';
 import DailyNews from './pages/NewsAndSports/DailyNews';
 import Business from './pages/NewsAndSports/Business';
 import Entertainment from './pages/NewsAndSports/Entertainment';
-import Crime from './pages/NewsAndSports/crime';
+import Crime from './pages/NewsAndSports/Crime';
 import { MovieProvider } from './context/MovieContext';
 import Login from './pages/Login/Login'
 import { onAuthStateChanged } from 'firebase/auth';
